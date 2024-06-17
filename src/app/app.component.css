@@ -1,0 +1,23 @@
+.navigation {
+    color: white;
+    display: flex;
+    justify-items: center;
+    height: 70px;
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.title-container img {
+    margin-right: 10px;
+}
+
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    margin-right: 10px;
+}
