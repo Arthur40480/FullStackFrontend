@@ -1,0 +1,67 @@
+.container-nav-city {
+    height: 70px;
+    margin: 0;
+    width: 100%;
+    background-color: #3B556D;
+    color: white;
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+.container-nav-city ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.list-nav-city {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+.navbar button.selected {
+    background-color: #0B162C; 
+    border: 2px solid #1C2942; 
+  }
+
+.custom-button {
+    background-color: #D54B1A;
+    color: white; 
+    border: 2px solid #ffffff; 
+    border-radius: 8px; 
+    padding: 4px 12px; 
+    cursor: pointer; 
+    font-size: 16px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+    font-weight: bold; 
+    margin: 0 20px;
+}
+
+.custom-button:hover {
+    background-color: #f98b62; 
+    color: white; 
+    transform: scale(1.05); 
+}
+
+.container-city-selected {
+    display: flex;
+    padding-top: 30px;
+    background-color: #2d3c58; 
+}
+
+.title-city-selected {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    padding: 10px 16px;
+    margin-left: 10px;
+    background-color: #0B162C; 
+    border: 2px solid #1C2942; 
+    border-radius: 8px; 
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
+    font-size: 20px;
+    color: white;
+}
