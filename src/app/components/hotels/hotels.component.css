@@ -54,6 +54,8 @@
 
 .container-city-selected {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding-top: 30px;
     background-color: #2d3c58; 
 }
@@ -71,6 +73,27 @@
     box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
     font-size: 20px;
     color: white;
+}
+
+.searchBar {
+    display: flex;
+    margin-right: 10px;
+}
+
+.searchButton {
+    border: none;
+    color: white;
+    width: 60px;
+    margin-right: 5px;
+    background-color: #D54B1A;
+    border: 2px solid #ffffff;
+    border-radius: 8px;
+}
+
+.searchButton:hover {
+    background-color: #f98b62; 
+    color: white; 
+    transform: scale(1.05); 
 }
 
 .container {

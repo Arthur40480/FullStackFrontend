@@ -13,6 +13,20 @@
         <div class="title-city-selected">
             Ville sélectionnée : <strong>{{nameCitySelected}}</strong>
         </div>
+        <div class="search-container">
+            <form class="searchBar">
+                <button class="searchButton" (click)="onSearch()">
+                    <i class="fa fa-search"></i>
+                </button>
+                <input
+                placeholder="Rechercher un hôtel..."
+                class="form-control mr-sm-2 formulaireRecherche"
+                type="text"
+                id="rechercheHotel"
+                ng-keyup="$event.keyCode == 13 && onSearch()"
+                />
+            </form>
+        </div>
     </div>
     <div class="container">
         <div class="row">
