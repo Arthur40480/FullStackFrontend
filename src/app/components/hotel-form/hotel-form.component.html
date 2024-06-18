@@ -1,0 +1,139 @@
+<div class="full-width-container">
+    <div class="space-container"></div>
+    <div class="form-container">
+        <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+            <div class="img-form-container">
+                <div class="img-container">
+                    <img [src]="urlImage" alt="Illustration de ville">
+                </div>
+                <div class="input-file-container">
+                    <input type="file" class="form-control input-file" (change)="onFileSelected($event)" />
+                </div>
+            </div>
+            <div class="info-form-container">
+                <div class="id-info-container">
+                    <div *ngIf="this.status">
+                        <label class="control-label">Id:</label>
+                        <input 
+                        type="number"
+                        formControlName="id"
+                        class="form-control info-input"
+                        readonly />
+                    </div>
+                    <div>
+                        <label class="control-label">Ville : </label>
+                        <select formControlName="city" class="form-control" [(ngModel)]="hotel.city" formControlName="city">
+                            <option [ngValue]="null" disabled selected>
+                                Selectionnez une Ville
+                            </option>
+                            <option [ngValue]="this.hotel.city" *ngIf="hotel.id != 0">
+                                {{ this.hotel.city.name }}
+                            </option>
+                            <option *ngFor="let city of listCities" [ngValue]="city">
+                            {{ city.name }}
+                            </option>
+                        </select>
+                        <div *ngIf="myForm.get('city')?.errors?.['required'] && myForm.get('city')?.touched" class="container-error">
+                            La sélection de la ville est obligatoire.
+                        </div>
+                    </div>
+                </div>
+                <div class="name-info-container">
+                    <div class="first-container-info">
+                        <div>
+                            <label class="control-label">Nom de l'hôtel:</label>
+                            <input 
+                            type="text"
+                            formControlName="name"
+                            class="form-control info-input"/>
+                            <div *ngIf="myForm.get('name')?.errors?.['required'] && myForm.get('name')?.touched" class="container-error first">
+                                Le nom de l'hôtel est obligatoire.
+                            </div>
+                              <div *ngIf="myForm.get('name')?.errors?.['minlength'] && myForm.get('name')?.touched" class="container-error second">
+                                Le nom doit comporter au moins 3 caractères.
+                            </div>
+                            <div *ngIf="myForm.get('name')?.errors?.['pattern'] && myForm.get('name')?.touched" class="container-error third">
+                                Le nom de de l'hôtel peut uniquement contenir des lettres, des espaces et des tirets.
+                            </div>
+                        </div>
+                        <div>
+                            <label class="control-label">Description:</label>
+                            <input 
+                            type="text"
+                            formControlName="description"
+                            class="form-control info-input input-description"/>
+                            <div *ngIf="myForm.get('description')?.errors?.['required'] && myForm.get('description')?.touched" class="container-error first">
+                                La description est obligatoire.
+                            </div>
+                              <div *ngIf="myForm.get('description')?.errors?.['minlength'] && myForm.get('description')?.touched" class="container-error second">
+                                La description doit comporter au moins 10 caractères.
+                            </div>
+                            <div *ngIf="myForm.get('description')?.errors?.['pattern'] && myForm.get('description')?.touched" class="container-error third">
+                                La description n'est pas valide, caractère non-autoriser.
+                            </div>
+                        </div>
+                        <div>
+                            <label class="control-label">Adresse:</label>
+                            <input 
+                            type="text"
+                            formControlName="adress"
+                            class="form-control info-input"/>
+                            <div *ngIf="myForm.get('adress')?.errors?.['required'] && myForm.get('adress')?.touched" class="container-error first">
+                                L'adresse' est obligatoire.
+                            </div>
+                              <div *ngIf="myForm.get('adress')?.errors?.['minlength'] && myForm.get('adress')?.touched" class="container-error second">
+                                L'adresse' doit comporter au moins 5 caractères.
+                            </div>
+                            <div *ngIf="myForm.get('adress')?.errors?.['pattern'] && myForm.get('adress')?.touched" class="container-error third">
+                                L'adresse n'est pas valide, caractère non-autoriser.
+                            </div>
+                        </div>
+                        <div>
+                            <label class="control-label">Numéro de téléphone:</label>
+                            <input 
+                            type="text"
+                            formControlName="phoneNumber"
+                            class="form-control info-input"/>
+                            <div *ngIf="myForm.get('phoneNumber')?.errors?.['required'] && myForm.get('phoneNumber')?.touched" class="container-error first">
+                                Le numéro de téléphone est obligatoire.
+                            </div>
+                            <div *ngIf="myForm.get('phoneNumber')?.errors?.['pattern'] && myForm.get('phoneNumber')?.touched" class="container-error third">
+                                Le numéro de téléphone n'est pas valide.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="second-container-info">
+                        <div>
+                            <label class="control-label">Score : (Sur 5 )</label>
+                            <input 
+                            type="number"
+                            formControlName="rating"
+                            class="form-control info-input"
+                            min="1" max="5"/>
+                        </div>
+                        <div>
+                            <label class="control-label">Chambre(s) disponible(s)</label>
+                            <input 
+                            type="number"
+                            formControlName="roomAvailability"
+                            class="form-control info-input"
+                            min="0" max="100"/>
+                        </div>
+                        <div>
+                            <label class="control-label">Prix minimum pour une chambre</label>
+                            <input 
+                            type="number"
+                            formControlName="lowestRoomPrice"
+                            class="form-control info-input"
+                            min="0" max="1000"/>
+                        </div>
+                        <div>
+                            <button  *ngIf="!status" type="submit" class="form-btn" >Ajouter</button>
+                            <button  *ngIf="status" type="submit" class="form-btn" >Modifier</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

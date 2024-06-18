@@ -12,10 +12,26 @@ export class AppComponent {
   constructor(
     private router: Router,
     private route: ActivatedRoute
-  ) {
+  ) {}
 
+  /**
+ * Navigue vers la page d'accueil.
+ */
+  navigateToHome() {
+    this.router.navigateByUrl('hotels');
   }
-  navigateToCitiesList() {
-    this.router.navigateByUrl('cities');
-  }
+  
+/**
+ * Navigue vers la liste des villes.
+ */
+navigateToCitiesList() {
+  this.router.navigateByUrl('cities');
+}
+
+/**
+ * Navigue vers la liste des hôtels.
+ */
+navigateToHotelsList() {
+  this.router.navigateByUrl('hotelList');
+}
 }

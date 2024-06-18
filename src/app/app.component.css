@@ -12,6 +12,12 @@
     margin-left: 10px;
 }
 
+.logo-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
 .title-container img {
     margin-right: 10px;
 }

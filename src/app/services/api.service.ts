@@ -41,6 +41,10 @@ export class ApiService {
     return this.http.get<Hotel>(`${environment.host}/hotel/${id}`);
   }
 
+  public saveHotel(hotel: any) {
+    return this.http.post<Hotel>(`${environment.host}/hotel`, hotel)
+  }
+
   public getCityById(id:number): Observable<City>{
     return this.http.get<City>(`${environment.host}/city/${id}`);
   }
@@ -51,5 +55,9 @@ export class ApiService {
 
   public deleteCity(id:number) {
     return this.http.delete(`${environment.host}/city/${id}`)
+  }
+
+  public postImg(formData: FormData) {
+    return this.http.post<any>(`${environment.host}/download`, formData);
   }
 }
