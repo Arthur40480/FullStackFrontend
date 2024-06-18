@@ -1,0 +1,29 @@
+<div class="card-container">
+    <div class="info-card">
+        <div class="img-container">
+            <a>
+                <img [src]="urlImage" class="img-hotel"/>
+            </a>
+        </div>
+        <div class="info-container">
+            <h3>{{hotel?.name}}</h3>
+            <div class="comment-container">{{hotel?.review}} Commentaires</div>
+            <div class="rating-container">
+                <div><i *ngFor="let star of getStars()" class="fa fa-star yellow-star"></i></div>
+            </div>
+            <div class="description-container">
+                <p class="description">{{hotel?.description}}</p>
+            </div>
+        </div>
+        <div class="button-container">
+            <div class="link-container">
+                <a>Voir les détails <i class="fa fa-caret-right"></i></a>
+            </div>
+        </div>
+        <div class="container-price">
+            <p class="price">{{hotel?.lowestRoomPrice}}€</p>
+            <p>Par nuit</p>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,125 @@
+.card-container {
+    background-color: #2d3c58; 
+    height: 100%;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.info-card {
+    position: relative;
+    background-color: #5FC2BA;
+    height: 500px;
+    width: 350px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+.img-container {
+    height: 260px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+.img-container img {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.img-hotel {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover;
+}
+
+.info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    height: 190px;
+}
+
+.info-container h3 {
+    margin-top: 10px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.rating-container {
+    display: flex;
+    margin: 5px 0px 10px 0px;
+}
+
+.rating-container i {
+    margin-right: 2px;
+}
+
+.description-container {
+    width: 250px;
+    height: 55px;
+    overflow: hidden;
+}
+
+.description {
+    width: 100%;
+    height: 100%;
+    font-size: 12px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3; /* Affiche jusqu'à 3 lignes */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0B162C;
+    height: 50px;
+    color: white;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.link-container {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.link-container a {
+    transition: transform 0.3s ease;
+}
+
+.link-container a:hover {
+    transform: scale(1.1);
+}
+
+.button-container div i {
+    margin-top: 10px;
+    margin-left: 8px;
+}
+
+.container-price {
+    position: absolute;
+    bottom: 0;
+    right: -35px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    text-shadow: 4px 4px 7px rgba(0, 0, 0, 0.5);
+    height: 70px;
+    width: 70px;
+    background-color: #D54B1A;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+.price {
+    margin: 5px 0 0 0 ;
+    font-size: 24px;
+}
+
+.yellow-star {
+    color: gold;
+}

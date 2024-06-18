@@ -1,15 +1,26 @@
-<nav class="navbar container-nav-city">
-    <ul class="list-nav-city">
-        <li>
-            <button class="custom-button" (click)="getAllCities()" [class.selected]="idSelectedCity === 0">Toutes</button>
-        </li>
-        <li *ngFor="let city of listCity">
-            <button class="custom-button" (click)="getAllHotelByCity(city.id, city.name)" [class.selected]="idSelectedCity === city.id">{{ city.name }}</button>
-        </li>
-    </ul>
-</nav>
-<div class="container-city-selected">
-    <div class="title-city-selected">
-        Ville sélectionnée : <strong>{{nameCitySelected}}</strong>
+<div class="full-width-container">
+    <nav class="navbar container-nav-city">
+        <ul class="list-nav-city">
+            <li>
+                <button class="custom-button" (click)="getAllHotel()" [class.selected]="idSelectedCity === 0">Toutes</button>
+            </li>
+            <li *ngFor="let city of listCity">
+                <button class="custom-button" (click)="getAllHotelByCity(city.id, city.name)" [class.selected]="idSelectedCity === city.id">{{ city.name }}</button>
+            </li>
+        </ul>
+    </nav>
+    <div class="container-city-selected">
+        <div class="title-city-selected">
+            Ville sélectionnée : <strong>{{nameCitySelected}}</strong>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <ng-container *ngFor="let hotel of listHotel">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                    <app-cards [hotel]="hotel"></app-cards>
+                </div>
+            </ng-container>
+        </div>
     </div>
 </div>
