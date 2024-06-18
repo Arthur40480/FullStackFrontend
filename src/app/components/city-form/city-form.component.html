@@ -1,0 +1,41 @@
+<div class="full-width-container">
+    <div class="form-container">
+        <div>
+            <img src="assets/city.png" alt="Illustration de ville">
+        </div>
+        <div>
+            <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+                <div *ngIf="status">
+                    <label class="control-label">Id:</label>
+                    <input 
+                    type="number"
+                    formControlName="id"
+                    class="form-control"
+                    readonly />
+                </div>
+                <div>
+                    <label class="control-label">Nom de la ville:</label>
+                    <input 
+                    type="text"
+                    formControlName="name"
+                    class="form-control"/>
+                    <div *ngIf="myForm.get('name')?.errors?.['required'] && myForm.get('name')?.touched" class="container-error first">
+                        Le nom de la ville est obligatoire.
+                    </div>
+
+                      <div *ngIf="myForm.get('name')?.errors?.['minlength'] && myForm.get('name')?.touched" class="container-error second">
+                        Le nom doit comporter au moins 3 caractères.
+                    </div>
+                
+                    <div *ngIf="myForm.get('name')?.errors?.['pattern'] && myForm.get('name')?.touched" class="container-error third">
+                        Le nom de la ville peut uniquement contenir des lettres, des espaces et des tirets.
+                    </div>
+                </div>
+                <div>
+                    <button *ngIf="!status" type="submit" class="form-btn" >Ajouter</button>
+                    <button *ngIf="status" type="submit" class="form-btn" >Modifier</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

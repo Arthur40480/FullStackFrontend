@@ -1,0 +1,40 @@
+<div class="full-width-container">
+    <div class="container-return-button">
+        <div class="return-button" (click)="navigateToHome()">
+            Retour à l'accueil <i class="fa fa-arrow-right"></i>
+        </div>
+    </div>
+    <div class="container-message">
+        <div *ngIf="showSuccessMessage" class="success-message">
+        Suppression réussie.
+        </div>
+        <div *ngIf="showErrorMessage" class="error-message">
+            Des hôtels sont affiliés à cette ville. Veuillez les supprimer d'abord.
+        </div>
+    </div>
+    <div class="container-city-list">
+        <div class="table-responsive">
+            <ng-container>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nom</th>
+                            <th scope="col"><button class="btn-list btn-add" (click)="navigateToCityForm(0)">Ajouter une ville <i class="fa fa-plus"></i></button></th>
+                        </tr>
+                    </thead>
+        
+                <tbody>
+                    <tr *ngFor="let city of listCities">
+                        <td>{{city.id}}</td>
+                        <td>{{city.name}}</td>
+                        <td><button class="btn-list btn-update" (click)="navigateToCityForm(city.id)">Modifier <i class="fa fa-edit"></i></button></td>
+                        <td><button class="btn-list btn-delete" (click)="deleteCity(city.id)">Supprimer <i class="fa fa-trash"></i></button></td>
+                    </tr>
+
+                </tbody>
+            </table>
+            </ng-container>
+        </div>
+    </div>    
+</div>

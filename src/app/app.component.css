@@ -23,4 +23,20 @@
     margin-right: 10px;
 }
 
+.gestion-btn {
+    border: none;
+    margin-left: 50px;
+    padding: 8px 16px;
+    border: 2px solid white;
+    background-color: #D54B1A;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
 
+.gestion-btn:hover {
+    transform: scale(1.1);
+    background-color: #f98b62;
+}

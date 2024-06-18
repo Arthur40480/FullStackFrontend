@@ -40,4 +40,16 @@ export class ApiService {
   public getHotelById(id: number): Observable<Hotel> {
     return this.http.get<Hotel>(`${environment.host}/hotel/${id}`);
   }
+
+  public getCityById(id:number): Observable<City>{
+    return this.http.get<City>(`${environment.host}/city/${id}`);
+  }
+
+  public saveCity(city: any) {
+    return this.http.post<City>(`${environment.host}/city`, city)
+  }
+
+  public deleteCity(id:number) {
+    return this.http.delete(`${environment.host}/city/${id}`)
+  }
 }

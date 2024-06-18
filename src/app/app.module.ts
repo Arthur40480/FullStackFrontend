@@ -9,13 +9,17 @@ import { AppComponent } from './app.component';
 import { HotelsComponent } from './components/hotels/hotels.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { HotelDetailComponent } from './components/hotel-detail/hotel-detail.component';
+import { CityListComponent } from './components/city-list/city-list.component';
+import { CityFormComponent } from './components/city-form/city-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HotelsComponent,
     CardsComponent,
-    HotelDetailComponent
+    HotelDetailComponent,
+    CityListComponent,
+    CityFormComponent
   ],
   imports: [
     BrowserModule,

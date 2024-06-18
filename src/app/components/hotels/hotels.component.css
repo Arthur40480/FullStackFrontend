@@ -6,6 +6,8 @@
 }
 
 .container-nav-city {
+    overflow-x: auto;
+    white-space: nowrap;
     height: 70px;
     margin: 0;
     width: 100%;
