@@ -1,7 +1,7 @@
 <div class="card-container">
     <div class="info-card">
         <div class="img-container">
-            <a>
+            <a (click)="navigateToHotelDetail()">
                 <img [src]="urlImage" class="img-hotel"/>
             </a>
         </div>
@@ -15,7 +15,7 @@
                 <p class="description">{{hotel?.description}}</p>
             </div>
         </div>
-        <div class="button-container">
+        <div class="button-container" (click)="navigateToHotelDetail()">
             <div class="link-container">
                 <a>Voir les détails <i class="fa fa-caret-right"></i></a>
             </div>

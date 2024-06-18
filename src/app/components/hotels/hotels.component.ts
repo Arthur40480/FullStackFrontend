@@ -3,6 +3,7 @@ import { City } from 'src/app/models/city.model';
 import { Hotel } from 'src/app/models/hotel.model';
 import { ApiService } from 'src/app/services/api.service';
 import { CityService } from 'src/app/services/city.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-hotels',
@@ -19,16 +20,22 @@ export class HotelsComponent implements OnInit {
   nameCitySelected: string = '';
   keyword: string = '';
 
-  constructor(private apiService: ApiService, private cityService: CityService) { 
-  
+  constructor(
+    private apiService: ApiService, 
+    private cityService: CityService,
+    private router: Router,
+    private route: ActivatedRoute) { 
   }
 
   ngOnInit(): void {
     this.idSelectedCity = this.cityService.getSelectedIdCity();
     this.nameCitySelected = this.cityService.getSelectedNameCity();
-    this.getAllHotel();
-    if(this.idSelectedCity == 0) {
+    if (this.idSelectedCity === 0 || this.idSelectedCity === null) {
+      this.getAllHotel();
       this.getAllCities();
+    } else {
+      this.getAllCities();
+      this.getAllHotelByCity(this.idSelectedCity, this.nameCitySelected);
     }
   }
 

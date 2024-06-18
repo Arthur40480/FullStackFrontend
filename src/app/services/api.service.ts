@@ -36,4 +36,8 @@ export class ApiService {
   public getHotelByCity(id: number): Observable<Hotel[]> {
     return this.http.get<Hotel[]>(`${environment.host}/hotels/${id}`);
   }
+
+  public getHotelById(id: number): Observable<Hotel> {
+    return this.http.get<Hotel>(`${environment.host}/hotel/${id}`);
+  }
 }

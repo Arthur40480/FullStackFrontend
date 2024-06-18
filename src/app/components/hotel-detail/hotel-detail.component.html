@@ -1,0 +1,50 @@
+<div class="big-container-detail">
+    <div class="container-return-button">
+        <div class="return-button" (click)="navigateToHome()">
+            Retour à l'accueil <i class="fa fa-arrow-right"></i>
+        </div>
+    </div>
+    <div class="container">
+        <div class="container-detail-img">
+            <img [src]="urlImage" alt="Photo de l'hôtel">
+        </div>
+        <div class="container-detail-info">
+            <div class="first-container-detail">
+                <div>
+                    <div class="rating-detail-container">
+                        <p>{{hotel?.review}} Commentaires</p>
+                        <div><i *ngFor="let star of getStars()" class="fa fa-star yellow-star"></i></div>
+                    </div>
+                    <h3>{{hotel?.name}}</h3>
+                </div>
+                <div class="price-detail-container">
+                    <p class="price">{{hotel?.lowestRoomPrice}}€</p>
+                    <p class="per-night">Par nuit</p>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="second-container-detail">
+                <p>{{hotel?.description}}</p>
+            </div>
+            <div class="third-container-detail">
+                <p><i class="fa fa-map-pin"></i> <strong>{{hotel?.adress}}</strong></p>
+                <p><i class="fa fa-phone"></i> <strong>{{hotel?.phoneNumber}}</strong></p>
+            </div>
+            <div class="fourth-container-detail">
+                <p><i class="fa fa-bed"></i> Chambres restantes</p>
+                <div class="room-left-container"> {{hotel?.roomAvailability}} </div>
+            </div>
+            <div class="sixth-container-detail">
+                <div class="icon-detail-container">
+                    <div class="icon-container"><i class="fa fa-wifi"></i></div>
+                    <div class="icon-container"><i class="fa fa-coffee"></i></div>
+                    <div class="icon-container"><i class="fa fa-plane"></i></div>
+                </div>
+                <div>
+                    <button class="reserve-button"> Reserver </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
