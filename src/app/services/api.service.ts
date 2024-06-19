@@ -4,6 +4,8 @@ import { environment } from 'src/environments/environment';
 import { City } from '../models/city.model';
 import { Hotel } from '../models/hotel.model';
 import { Observable } from 'rxjs';
+import { User } from '../models/user.model';
+import { Manager } from '../models/manager.model';
 
 @Injectable({
   providedIn: 'root'
@@ -68,5 +70,9 @@ export class ApiService {
     return this.http.post<any>(environment.host + '/login', formData, {
       observe: 'response',
     });
+  }
+
+  public getAllManagers(): Observable<Manager[]> {
+    return this.http.get<Manager[]>(`${environment.host}/managers`)
   }
 }

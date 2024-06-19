@@ -54,4 +54,11 @@ export class AppComponent {
   navigateToLoginForm() {
     this.router.navigateByUrl('login');
   }
+
+    /**
+   * Navigue vers la liste des managers.
+   */
+    navigateToManagerList() {
+      this.router.navigateByUrl('managerList');
+    }
 }

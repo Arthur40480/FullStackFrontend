@@ -1,0 +1,72 @@
+.full-width-container {
+    width: 100%;
+    background-color: #2d3c58; 
+    margin: 0;
+    padding: 0;
+}
+
+.container-city-list {
+    width: 60%;
+    margin: auto;
+}
+
+.table {
+    border: #0B162C solid 4px;
+    background-color: white;
+    box-shadow: 0 8px 14px rgba(0, 0, 0, 0.6);
+}
+
+.container-return-button {
+    padding-top: 20px;
+}
+
+.return-button {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    padding: 10px 16px;
+    margin-left: 15px;
+    background-color: #0B162C; 
+    border: 2px solid #1C2942; 
+    border-radius: 8px; 
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    width: 250px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.return-button i {
+    margin-left: 20px;
+}
+
+.return-button:hover {
+    transform: scale(1.1);
+}
+
+.btn-list {
+    border: none;
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+    padding: 8px 16px;
+    transition: transform 0.3s ease;
+}
+
+.btn-list:hover {
+    transform: scale(1.1);
+}
+
+.btn-delete {
+    background-color: #D54B1A;
+}
+
+.btn-add {
+    background-color: #0B162C;
+}
+
+.btn-update {
+    background-color: #2D3C58;
+}

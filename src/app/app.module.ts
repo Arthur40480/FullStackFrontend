@@ -16,6 +16,7 @@ import { HotelFormComponent } from './components/hotel-form/hotel-form.component
 import { LoginComponent } from './components/login/login.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ForbiddenComponent } from './components/forbidden/forbidden.component';
+import { ManagerListComponent } from './components/manager-list/manager-list.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ForbiddenComponent } from './components/forbidden/forbidden.component';
     HotelFormComponent,
     LoginComponent,
     NotFoundComponent,
-    ForbiddenComponent
+    ForbiddenComponent,
+    ManagerListComponent
   ],
   imports: [
     BrowserModule,
