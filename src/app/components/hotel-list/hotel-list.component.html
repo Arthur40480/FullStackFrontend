@@ -10,6 +10,9 @@
             <div *ngIf="showErrorMessage" class="error-message">
                 Des managers sont affiliés à cet hôtel. Veuillez les supprimer d'abord.
             </div>
+            <div *ngIf="listHotel?.length === 0" class="error-message">
+                Aucun hôtel assignés pour cet hôtel manager
+            </div>
         </div>
     </div>
     <div class="container-city-list">
@@ -20,7 +23,7 @@
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Nom</th>
-                            <th scope="col"><button class="btn-list btn-add" (click)="navigateToHotelForm(0)">Ajouter un hôtel <i class="fa fa-plus"></i></button></th>
+                            <th scope="col"><button class="btn-list btn-add" *ngIf="isAdmin" (click)="navigateToHotelForm(0)">Ajouter un hôtel <i class="fa fa-plus"></i></button></th>
                         </tr>
                     </thead>
         

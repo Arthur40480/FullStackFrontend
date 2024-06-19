@@ -169,4 +169,9 @@ export class AuthenticateService {
     localStorage.removeItem('authToken');
     this.userConnected = new User('', '', []);
   }
+
+  getUserIdToken() {
+    const decodedToken = this.decodeToken();
+    console.log(decodedToken);
+  }
 }

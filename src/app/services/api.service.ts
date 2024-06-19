@@ -51,8 +51,12 @@ export class ApiService {
     return this.http.get<Manager[]>(`${environment.host}/managers/${id}`)
   }
 
+  public getManagerByUsername(username: string) {
+    return this.http.get<Manager>(`${environment.host}/username`, { params: { username } });
+}
+
   public saveHotel(hotel: any) {
-    return this.http.post<Hotel>(`${environment.host}/hotel`, hotel)
+    return this.http.post<any>(`${environment.host}/hotel`, hotel)
   }
 
   public saveManager(username: any) {

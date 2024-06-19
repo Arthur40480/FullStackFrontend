@@ -32,11 +32,25 @@ export class HotelListComponent implements OnInit {
   }
 
   getAllHotel(): void {
-    this.apiService.getAllHotel().subscribe({
-      next: (data) => (this.listHotel = data),
-      error: (err) => (this.error = err.message),
-      complete: () => (this.error = null)
-    });
+    if(this.isAdmin) {
+      this.apiService.getAllHotel().subscribe({
+        next: (data) => (this.listHotel = data),
+        error: (err) => (this.error = err.message),
+        complete: () => (this.error = null)
+      });
+    } else {
+      let username = this.authService.UsernameToken();
+      this.apiService.getManagerByUsername(username).subscribe({
+        next: (manager) => {
+          this.apiService.getHotelByManager(manager.id).subscribe({
+            next: (hotels) => (this.listHotel = hotels),
+            error: (err) => (this.error = err.message),
+            complete: () => (this.error = null)
+          })
+        }
+      })
+      
+    }
   }
 
   /**
