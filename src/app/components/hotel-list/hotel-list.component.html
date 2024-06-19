@@ -29,7 +29,7 @@
                         <td>{{hotel.id}}</td>
                         <td>{{hotel.name}}</td>
                         <td><button class="btn-list btn-update" (click)="navigateToHotelForm(hotel.id)">Modifier <i class="fa fa-edit"></i></button></td>
-                        <td><button class="btn-list btn-delete" (click)="deleteHotel(hotel.id)">Supprimer <i class="fa fa-trash"></i></button></td>
+                        <td><button *ngIf="isAdmin" class="btn-list btn-delete" (click)="deleteHotel(hotel.id)">Supprimer <i class="fa fa-trash"></i></button></td>
                     </tr>
                 </tbody>
             </table>

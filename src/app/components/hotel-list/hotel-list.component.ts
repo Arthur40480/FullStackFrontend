@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Hotel } from 'src/app/models/hotel.model';
 import { ApiService } from 'src/app/services/api.service';
+import { AuthenticateService } from 'src/app/services/authenticate.service';
 
 @Component({
   selector: 'app-hotel-list',
@@ -14,14 +15,17 @@ export class HotelListComponent implements OnInit {
   error = null;
   showErrorMessage = false;
   showSuccessMessage = false;
+  isAdmin: boolean = false;
 
   constructor(
     private apiService: ApiService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private authService: AuthenticateService
   ) { }
 
   ngOnInit(): void {
+    this.isAdmin = this.authService.isAdminToken();
     this.showErrorMessage = false;
     this.showSuccessMessage = false;
     this.getAllHotel()

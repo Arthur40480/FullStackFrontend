@@ -5,10 +5,11 @@
       <h2><strong>Super-Hôtel</strong></h2>
     </div>
     <div><button class="gestion-btn" *ngIf="this.authService.isConnectedToken() && this.authService.isAdminToken()" (click)="navigateToCitiesList()">Gestion des villes</button></div>
-    <div><button class="gestion-btn" *ngIf="this.authService.isConnectedToken() && this.authService.isAdminToken()" (click)="navigateToHotelsList()">Gestion des hôtels</button></div>
-    <div><button class="gestion-btn" *ngIf="this.authService.isConnectedToken() && this.authService.isAdminToken() || this.authService.isHotelManagerToken()" (click)="navigateToManagerList()">Gestion des managers</button></div>
+    <div><button class="gestion-btn" *ngIf="this.authService.isConnectedToken() && this.authService.isAdminToken() || this.authService.isHotelManagerToken()" (click)="navigateToHotelsList()">Gestion des hôtels</button></div>
+    <div><button class="gestion-btn" *ngIf="this.authService.isConnectedToken() && this.authService.isAdminToken()" (click)="navigateToManagerList()">Gestion des managers</button></div>
     <div class="username-container" *ngIf="this.authService.isConnectedToken()">Bonjour <strong>{{this.authService.UsernameToken()}}</strong> !</div>
     <div class="status-admin" *ngIf="this.authService.isConnectedToken() && this.authService.isAdminToken()">[ Admin ]</div>
+    <div class="status-admin" *ngIf="this.authService.isConnectedToken() && this.authService.isHotelManagerToken()">[ Hôtel-Manager ]</div>
   </div>
   <div *ngIf="!this.authService.isConnectedToken()" class="login-container ms-auto">
     <a (click)="navigateToLoginForm()"><strong>Connexion </strong><img src="assets/login.png" class="login-img" /></a>

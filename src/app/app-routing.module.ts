@@ -12,6 +12,7 @@ import { ForbiddenComponent } from './components/forbidden/forbidden.component';
 import { AdminGuard } from './guards/admin.guard';
 import { ManagerListComponent } from './components/manager-list/manager-list.component';
 import { ManagerFormComponent } from './components/manager-form/manager-form.component';
+import { ManagerGuard } from './guards/manager.guard';
 
 const routes: Routes = [
   { path: 'hotels', component : HotelsComponent},
@@ -23,10 +24,10 @@ const routes: Routes = [
     canActivate : [AdminGuard]
   },
   { path: 'hotelList', component: HotelListComponent,
-    canActivate : [AdminGuard]
+    canActivate : [ManagerGuard]
   },
   { path: 'hotelForm/:id', component: HotelFormComponent,
-    canActivate : [AdminGuard]
+    canActivate : [ManagerGuard]
   },
   { path: "managerList", component: ManagerListComponent,
     canActivate : [AdminGuard]
