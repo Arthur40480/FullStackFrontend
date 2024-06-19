@@ -36,4 +36,12 @@ export class ManagerListComponent implements OnInit {
     navigateToHome() {
       this.router.navigateByUrl('hotels');
     }
+
+      /**
+ * Navigue vers le formulaire de modification d'un manager spécifiée par son identifiant.
+ * @param id L'identifiant du manager à modifier.
+ */
+  navigateToManagerForm(id:number) {
+    this.router.navigateByUrl('managerForm/' + id);
+  }
 }

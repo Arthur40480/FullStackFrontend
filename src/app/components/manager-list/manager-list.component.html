@@ -20,7 +20,7 @@
                     <tr *ngFor="let manager of listManager">
                         <td>{{manager.id}}</td>
                         <td>{{manager.username}}</td>
-                        <td><button class="btn-list btn-update">Modifier <i class="fa fa-edit"></i></button></td>
+                        <td><button class="btn-list btn-update" (click)="navigateToManagerForm(manager.id)">Modifier <i class="fa fa-edit"></i></button></td>
                         <td><button class="btn-list btn-delete" >Supprimer <i class="fa fa-trash"></i></button></td>
                     </tr>
                 </tbody>

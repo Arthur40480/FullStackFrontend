@@ -1,0 +1,58 @@
+<div class="full-width-container">
+    <div class="divider"></div>
+    <div class="form-container">
+        <div class="second-form-container">
+            <div>
+                <img src="assets/manager.png" alt="Illustration de ville">
+            </div>
+            <div>
+                <form [formGroup]="myForm" (ngSubmit)="addManager(myForm)">
+                    <div>
+                        <label class="control-label">Id:</label>
+                        <input 
+                        type="number"
+                        formControlName="id"
+                        class="form-control"
+                        readonly />
+                    </div>
+                    <div>
+                        <label class="control-label">Nom du manager:</label>
+                        <input 
+                        type="text"
+                        formControlName="username"
+                        class="form-control"/>
+                    </div>
+                    <div class="btn-container">
+                        <button type="submit" class="form-btn" >Ajouter</button>
+                        <!-- <button type="submit" class="form-btn" >Modifier</button> -->
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="manager-container">
+            <div class="title-manager">Gérer les Hôtels Assignés à ce Manager</div>
+            <div class="select-container">
+                <div>
+                    <label>Séléctionnez un hôtel :</label>
+                    <select id="hotelSelect" [(ngModel)]="idSelectedHotel">
+                        <option *ngFor="let hotel of availableHotels" [ngValue]="hotel.id">
+                            {{ hotel.name }}
+                            </option>
+                    </select>
+                </div>
+                <div>
+                    <button class="btn-add" (click)="addHotelToManager()">Ajouter</button>
+                </div>
+            </div>
+            <div class="container-assigned-hotel" id="assignedHotels">
+                <div *ngFor="let assignedHotel of assignedHotels" class="assigned-hotel">
+                    <p class="hotel-name">{{assignedHotel.name}}</p>
+                    <button class="btn-remove" (click)="removeHotelFromManager(assignedHotel.id)"><i class="fa fa-times"></i></button>
+                </div>
+                <div *ngIf="assignedHotels.length < 1" class="assigned-hotel">
+                    <p class="hotel-name">Aucun hôtel n'est gérer par ce Manager.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
