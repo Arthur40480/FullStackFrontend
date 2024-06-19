@@ -60,4 +60,13 @@ export class ApiService {
   public postImg(formData: FormData) {
     return this.http.post<any>(`${environment.host}/download`, formData);
   }
+
+  public getToken(username: string, password: string): Observable<any> {
+    let formData: FormData = new FormData();
+    formData.append('username', username);
+    formData.append('password', password);
+    return this.http.post<any>(environment.host + '/login', formData, {
+      observe: 'response',
+    });
+  }
 }

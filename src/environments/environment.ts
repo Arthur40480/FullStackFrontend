@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  host: 'http://localhost:8080'
+  host: 'http://localhost:8080',
+  regExEmail: '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$',
 };
 
 /*

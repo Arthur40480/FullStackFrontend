@@ -6,14 +6,30 @@ import { CityListComponent } from './components/city-list/city-list.component';
 import { CityFormComponent } from './components/city-form/city-form.component';
 import { HotelListComponent } from './components/hotel-list/hotel-list.component';
 import { HotelFormComponent } from './components/hotel-form/hotel-form.component';
+import { LoginComponent } from './components/login/login.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ForbiddenComponent } from './components/forbidden/forbidden.component';
+import { AdminGuard } from './guards/admin.guard';
 
 const routes: Routes = [
   { path: 'hotels', component : HotelsComponent},
   { path: 'hotelDetail/:id', component : HotelDetailComponent},
-  { path: 'cities', component: CityListComponent},
-  { path: 'cityForm/:id', component: CityFormComponent},
-  { path: 'hotelList', component: HotelListComponent},
-  { path: 'hotelForm/:id', component: HotelFormComponent}
+  { path: 'cities', component: CityListComponent,
+  canActivate : [AdminGuard]
+  },
+  { path: 'cityForm/:id', component: CityFormComponent,
+    canActivate : [AdminGuard]
+  },
+  { path: 'hotelList', component: HotelListComponent,
+    canActivate : [AdminGuard]
+  },
+  { path: 'hotelForm/:id', component: HotelFormComponent,
+    canActivate : [AdminGuard]
+  },
+  { path: 'login', component: LoginComponent},
+  { path: '403', component: ForbiddenComponent},
+  { path: '404', component: NotFoundComponent},
+  { path: '**', redirectTo: '/404'}
 ];
 
 @NgModule({

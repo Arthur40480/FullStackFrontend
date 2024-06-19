@@ -1,0 +1,43 @@
+.full-width-container {
+    width: 100%;
+    background-color: #2d3c58; 
+    margin: 0;
+    padding: 0;
+}
+
+input {
+    margin-bottom: 10px;
+    box-shadow: 0 8px 14px rgba(0, 0, 0, 0.6);
+}
+
+label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.card-header {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.card {
+    border: #0B162C solid 4px;
+    box-shadow: 0 8px 14px rgba(0, 0, 0, 0.6);
+}
+
+.btn-login {
+    border: none;
+    background-color: #0B162C; 
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 8px 12px;
+    transition: transform 0.3s ease;
+}
+
+.btn-login:hover {
+    transform: scale(1.1);
+}

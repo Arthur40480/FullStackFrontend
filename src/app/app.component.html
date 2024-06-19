@@ -4,11 +4,16 @@
       <img src="assets/logo.png" alt="Logo de Super-Hotel.fr"/>
       <h2><strong>Super-Hôtel</strong></h2>
     </div>
-    <div><button class="gestion-btn" (click)="navigateToCitiesList()">Gestion des villes</button></div>
-    <div><button class="gestion-btn" (click)="navigateToHotelsList()">Gestion des hôtels</button></div>
+    <div><button class="gestion-btn" *ngIf="this.authService.isConnectedToken() && this.authService.isAdminToken()" (click)="navigateToCitiesList()">Gestion des villes</button></div>
+    <div><button class="gestion-btn" *ngIf="this.authService.isConnectedToken() && this.authService.isAdminToken()" (click)="navigateToHotelsList()">Gestion des hôtels</button></div>
+    <div class="username-container" *ngIf="this.authService.isConnectedToken()">Bonjour <strong>{{this.authService.UsernameToken()}}</strong> !</div>
+    <div class="status-admin" *ngIf="this.authService.isConnectedToken() && this.authService.isAdminToken()">[ Admin ]</div>
   </div>
-  <div class="login-container ms-auto">
-    <a><strong>Connexion </strong><i class="fa fa-users"></i></a>
+  <div *ngIf="!this.authService.isConnectedToken()" class="login-container ms-auto">
+    <a (click)="navigateToLoginForm()"><strong>Connexion </strong><img src="assets/login.png" class="login-img" /></a>
+  </div>
+  <div *ngIf="this.authService.isConnectedToken()" class="login-container ms-auto">
+    <a (click)="navigateToLoginForm()"><strong>Déconnexion </strong><img src="assets/login.png" class="login-img" /></a>
   </div>
 </nav>
 <router-outlet></router-outlet>

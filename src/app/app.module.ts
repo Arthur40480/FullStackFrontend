@@ -13,6 +13,9 @@ import { CityListComponent } from './components/city-list/city-list.component';
 import { CityFormComponent } from './components/city-form/city-form.component';
 import { HotelListComponent } from './components/hotel-list/hotel-list.component';
 import { HotelFormComponent } from './components/hotel-form/hotel-form.component';
+import { LoginComponent } from './components/login/login.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ForbiddenComponent } from './components/forbidden/forbidden.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { HotelFormComponent } from './components/hotel-form/hotel-form.component
     CityListComponent,
     CityFormComponent,
     HotelListComponent,
-    HotelFormComponent
+    HotelFormComponent,
+    LoginComponent,
+    NotFoundComponent,
+    ForbiddenComponent
   ],
   imports: [
     BrowserModule,
