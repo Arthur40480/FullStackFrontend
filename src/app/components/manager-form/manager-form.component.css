@@ -18,6 +18,17 @@
     box-shadow: 0 8px 14px rgba(0, 0, 0, 0.6);
 }
 
+.form-container-create{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    margin: auto;
+    background-color: #5DBEB6;
+    border: #0B162C solid 4px;
+    box-shadow: 0 8px 14px rgba(0, 0, 0, 0.6);
+}
+
 .second-form-container {
     display: flex;
     flex-direction: column;
@@ -93,6 +104,8 @@ width: 290px;
     font-weight: bold;
     font-size: 25px;
     margin-bottom: 20px;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
 }
 
 .select-container {
@@ -166,5 +179,16 @@ width: 290px;
 
 .btn-remove:hover {
     background-color: #f98b62;
+}
+
+.container-error {
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    background-color: #D54B1A;
+    padding: 5px 8px;
+    margin-bottom: 20px;
+    width: 180px;
+    font-size: 14px;
 }
 

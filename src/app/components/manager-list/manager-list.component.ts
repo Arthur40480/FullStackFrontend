@@ -12,6 +12,8 @@ export class ManagerListComponent implements OnInit {
 
   listManager: Manager[] | undefined;
   error = null;
+  showErrorMessage = false;
+  showSuccessMessage = false;
 
   constructor(
     private apiService: ApiService,
@@ -43,5 +45,29 @@ export class ManagerListComponent implements OnInit {
  */
   navigateToManagerForm(id:number) {
     this.router.navigateByUrl('managerForm/' + id);
+  }
+
+  deleteManager(id: number) {
+    this.showErrorMessage = false;
+    this.showSuccessMessage = false;
+    if(confirm("Confirmer la suppression de cette ville ?")) {
+      this.apiService.getHotelByManager(id).subscribe({
+        next:(hotels) => {
+          if(hotels.length > 0) {
+            this.showErrorMessage = true;
+          }else {
+            this.apiService.deleteManager(id).subscribe({
+              next: () => (this.showSuccessMessage = true),
+              error: (err) => {
+                console.error('Erreur lors de la suppression de la ville', err);
+                this.showErrorMessage = true;
+              },
+              complete: () => (this.getManagers())
+            })
+          }
+        }
+      })
+    }
+
   }
 }

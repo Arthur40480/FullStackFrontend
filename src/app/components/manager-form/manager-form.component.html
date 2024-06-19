@@ -1,6 +1,6 @@
 <div class="full-width-container">
     <div class="divider"></div>
-    <div class="form-container">
+    <div *ngIf="!status" class="form-container-create">
         <div class="second-form-container">
             <div>
                 <img src="assets/manager.png" alt="Illustration de ville">
@@ -21,15 +21,49 @@
                         type="text"
                         formControlName="username"
                         class="form-control"/>
+                        <div *ngIf="myForm.get('username')?.errors?.['required'] && myForm.get('username')?.touched" class="container-error first">
+                            Le nom est obligatoire.
+                        </div>
                     </div>
                     <div class="btn-container">
-                        <button type="submit" class="form-btn" >Ajouter</button>
-                        <!-- <button type="submit" class="form-btn" >Modifier</button> -->
+                        <button type="submit" class="form-btn">Ajouter</button>
                     </div>
                 </form>
             </div>
         </div>
-        <div class="manager-container">
+    </div>
+    <div *ngIf="status" class="form-container">
+        <div class="second-form-container">
+            <div>
+                <img src="assets/manager.png" alt="Illustration de ville">
+            </div>
+            <div>
+                <form [formGroup]="myForm" (ngSubmit)="addManager(myForm)">
+                    <div>
+                        <label class="control-label">Id:</label>
+                        <input 
+                        type="number"
+                        formControlName="id"
+                        class="form-control"
+                        readonly />
+                    </div>
+                    <div>
+                        <label class="control-label">Nom du manager:</label>
+                        <input 
+                        type="text"
+                        formControlName="username"
+                        class="form-control"/>
+                        <div *ngIf="myForm.get('username')?.errors?.['required'] && myForm.get('username')?.touched" class="container-error first">
+                            Le nom est obligatoire.
+                        </div>
+                    </div>
+                    <div class="btn-container">
+                        <button type="submit" class="form-btn" >Modifier</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div *ngIf="status" class="manager-container">
             <div class="title-manager">Gérer les Hôtels Assignés à ce Manager</div>
             <div class="select-container">
                 <div>

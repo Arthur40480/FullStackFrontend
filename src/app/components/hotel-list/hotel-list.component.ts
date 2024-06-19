@@ -12,6 +12,8 @@ export class HotelListComponent implements OnInit {
 
   listHotel: Hotel[] | undefined;
   error = null;
+  showErrorMessage = false;
+  showSuccessMessage = false;
 
   constructor(
     private apiService: ApiService,
@@ -20,10 +22,12 @@ export class HotelListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getAllCities()
+    this.showErrorMessage = false;
+    this.showSuccessMessage = false;
+    this.getAllHotel()
   }
 
-  getAllCities(): void {
+  getAllHotel(): void {
     this.apiService.getAllHotel().subscribe({
       next: (data) => (this.listHotel = data),
       error: (err) => (this.error = err.message),
@@ -44,5 +48,29 @@ export class HotelListComponent implements OnInit {
  */
   navigateToHotelForm(id:number) {
     this.router.navigateByUrl('hotelForm/' + id);
+  }
+
+  deleteHotel(id: number) {
+    this.showErrorMessage = false;
+    this.showSuccessMessage = false;
+    if(confirm("Confirmer la suppression de cette ville ?")) {
+      this.apiService.getManagerByHotel(id).subscribe({
+        next: (managers) => {
+          if(managers.length > 0) {
+            this.showErrorMessage = true;
+          }else {
+            this.apiService.deleteHotel(id).subscribe({
+              next: () => (this.showSuccessMessage = true),
+              error: (err) => {
+                console.error('Erreur lors de la suppression de l hotel', err);
+                this.showErrorMessage = true;
+              },
+              complete: () => (this.getAllHotel())
+            })
+          }
+        }
+      })
+    }
+
   }
 }

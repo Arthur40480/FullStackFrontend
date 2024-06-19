@@ -46,14 +46,23 @@ export class ApiService {
   public getHotelByManager(id: number): Observable<Hotel[]> {
     return this.http.get<Hotel[]>(`${environment.host}/manager/${id}/hotels`)
   }
+  
+  public getManagerByHotel(id: number) {
+    return this.http.get<Manager[]>(`${environment.host}/managers/${id}`)
+  }
 
   public saveHotel(hotel: any) {
     return this.http.post<Hotel>(`${environment.host}/hotel`, hotel)
   }
 
-  public saveManager(manager: any) {
-    return this.http.post<Manager>(`${environment.host}/users`, manager)
+  public saveManager(username: any) {
+    return this.http.post<Manager>(`${environment.host}/manager`, username)
   }
+
+  public updateManager(id:number, username:any) {
+    return this.http.post<Manager>(`${environment.host}/manager/${id}`, username)
+  }
+
   public getCityById(id:number): Observable<City>{
     return this.http.get<City>(`${environment.host}/city/${id}`);
   }
@@ -64,6 +73,14 @@ export class ApiService {
 
   public deleteCity(id:number) {
     return this.http.delete(`${environment.host}/city/${id}`)
+  }
+
+  public deleteHotel(id:number) {
+    return this.http.delete(`${environment.host}/hotel/${id}`)
+  }
+
+  public deleteManager(id: number) {
+    return this.http.delete(`${environment.host}/manager/${id}`)
   }
 
   public postImg(formData: FormData) {

@@ -6,7 +6,7 @@
     </div>
     <div><button class="gestion-btn" *ngIf="this.authService.isConnectedToken() && this.authService.isAdminToken()" (click)="navigateToCitiesList()">Gestion des villes</button></div>
     <div><button class="gestion-btn" *ngIf="this.authService.isConnectedToken() && this.authService.isAdminToken()" (click)="navigateToHotelsList()">Gestion des hôtels</button></div>
-    <div><button class="gestion-btn" *ngIf="this.authService.isConnectedToken() && this.authService.isAdminToken()" (click)="navigateToManagerList()">Gestion des managers</button></div>
+    <div><button class="gestion-btn" *ngIf="this.authService.isConnectedToken() && this.authService.isAdminToken() || this.authService.isHotelManagerToken()" (click)="navigateToManagerList()">Gestion des managers</button></div>
     <div class="username-container" *ngIf="this.authService.isConnectedToken()">Bonjour <strong>{{this.authService.UsernameToken()}}</strong> !</div>
     <div class="status-admin" *ngIf="this.authService.isConnectedToken() && this.authService.isAdminToken()">[ Admin ]</div>
   </div>

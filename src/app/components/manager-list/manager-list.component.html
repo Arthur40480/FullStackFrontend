@@ -3,6 +3,14 @@
         <div class="return-button" (click)="navigateToHome()">
             Retour à l'accueil <i class="fa fa-arrow-right"></i>
         </div>
+        <div class="container-message">
+            <div *ngIf="showSuccessMessage" class="success-message">
+            Suppression réussie.
+            </div>
+            <div *ngIf="showErrorMessage" class="error-message">
+                Des hôtels sont affiliés à ce manager. Veuillez les supprimer d'abord.
+            </div>
+        </div>
     </div>
     <div class="container-city-list">
         <div class="table-responsive">
@@ -12,7 +20,7 @@
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Nom</th>
-                            <th scope="col"><button class="btn-list btn-add">Ajouter un manager <i class="fa fa-plus"></i></button></th>
+                            <th scope="col"><button class="btn-list btn-add" (click)="navigateToManagerForm(0)">Ajouter un manager <i class="fa fa-plus"></i></button></th>
                         </tr>
                     </thead>
         
@@ -21,7 +29,7 @@
                         <td>{{manager.id}}</td>
                         <td>{{manager.username}}</td>
                         <td><button class="btn-list btn-update" (click)="navigateToManagerForm(manager.id)">Modifier <i class="fa fa-edit"></i></button></td>
-                        <td><button class="btn-list btn-delete" >Supprimer <i class="fa fa-trash"></i></button></td>
+                        <td><button class="btn-list btn-delete" (click)="deleteManager(manager.id)">Supprimer <i class="fa fa-trash"></i></button></td>
                     </tr>
                 </tbody>
             </table>

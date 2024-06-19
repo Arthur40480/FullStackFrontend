@@ -3,6 +3,14 @@
         <div class="return-button" (click)="navigateToHome()">
             Retour à l'accueil <i class="fa fa-arrow-right"></i>
         </div>
+        <div class="container-message">
+            <div *ngIf="showSuccessMessage" class="success-message">
+            Suppression réussie.
+            </div>
+            <div *ngIf="showErrorMessage" class="error-message">
+                Des managers sont affiliés à cet hôtel. Veuillez les supprimer d'abord.
+            </div>
+        </div>
     </div>
     <div class="container-city-list">
         <div class="table-responsive">
@@ -21,9 +29,8 @@
                         <td>{{hotel.id}}</td>
                         <td>{{hotel.name}}</td>
                         <td><button class="btn-list btn-update" (click)="navigateToHotelForm(hotel.id)">Modifier <i class="fa fa-edit"></i></button></td>
-                        <td><button class="btn-list btn-delete" >Supprimer <i class="fa fa-trash"></i></button></td>
+                        <td><button class="btn-list btn-delete" (click)="deleteHotel(hotel.id)">Supprimer <i class="fa fa-trash"></i></button></td>
                     </tr>
-
                 </tbody>
             </table>
             </ng-container>

@@ -32,7 +32,7 @@ export class ManagerFormComponent implements OnInit {
     this.manager = new Manager(0, '');
     this.myForm = this.formBuilder.group({
       id: [this.manager.id],
-      username: [ this.manager.username]
+      username: [ this.manager.username, [Validators.required]]
     })
   }
 
@@ -105,11 +105,13 @@ export class ManagerFormComponent implements OnInit {
   addManager(form: FormGroup) {
     if(form.valid) {
       if(this.status) {
-        this.apiService.saveManager({
-          id: form.value.id,
-          username: form.value.username,
-          password: this.ma
-        }).subscribe({
+        this.apiService.updateManager(form.value.id, form.value.username).subscribe({
+          next: (data) => (console.log(data)),
+          error: (err) => (this.error = err.message),
+          complete: () => this.router.navigateByUrl('managerList'),
+        })
+      }else {
+        this.apiService.saveManager(form.value.username).subscribe({
           next: (data) => (console.log(data)),
           error: (err) => (this.error = err.message),
           complete: () => this.router.navigateByUrl('managerList'),
